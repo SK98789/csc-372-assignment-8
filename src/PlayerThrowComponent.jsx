@@ -5,13 +5,6 @@ function PlayerThrow(props) {
 
     const handleClicked = (num) => {
         if (props.selected === 0) {
-            if (num === 1) {
-
-            } else if (num === 1) {
-                setPaper('player-selected');
-            } else if (num === 2) {
-                setScissors('player-selected');
-            }
             props.setSelected(num);
 
         }
