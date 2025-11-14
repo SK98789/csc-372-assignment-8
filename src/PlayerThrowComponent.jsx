@@ -1,11 +1,14 @@
-import { useState } from 'react';
 import './style.css';
 function PlayerThrow(props) {
 
-
+    /**
+     * If the card hasnt been selected, select it and save the player's choice
+     * @param {int} num - the index of the selection
+     */
     const handleClicked = (num) => {
-        if (props.selected === 0) {
-            props.setSelected(num);
+        if (!props.selected) {
+            props.setSelected(true);
+            props.setPlayerChoice(num);
 
         }
 
@@ -13,12 +16,20 @@ function PlayerThrow(props) {
 
     return (
         <div id='player-throw'>
-            <img className={(props.selected === 1) ? 'player-selected' : 'not-selected'}
+            <img className={(props.playerChoice === 0) ? 'player-selected' : 'not-selected'}
                 id='rock'
                 src='images/rock.PNG'
+                onClick={() => { handleClicked(0) }} />
+
+            <img className={(props.playerChoice === 1) ? 'player-selected' : 'not-selected'}
+                id='paper'
+                src='images/paper.PNG'
                 onClick={() => { handleClicked(1) }} />
-            <img className={(props.selected === 2) ? 'player-selected' : 'not-selected'} id='paper' src='images/paper.PNG' onClick={() => { handleClicked(2) }} />
-            <img className={(props.selected === 3) ? 'player-selected' : 'not-selected'} id='scissors' src='images/scissors.PNG' onClick={() => { handleClicked(3) }} />
+
+            <img className={(props.playerChoice === 2) ? 'player-selected' : 'not-selected'}
+                id='scissors'
+                src='images/scissors.PNG'
+                onClick={() => { handleClicked(2) }} />
         </div>
     );
 }

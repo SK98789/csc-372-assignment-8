@@ -1,8 +1,43 @@
-function ComputerThrow() {
+import { useEffect } from 'react'
+import './style.css';
 
+
+function ComputerThrow(props) {
+    const image_choices = ["rock.PNG", "paper.PNG", "scissors.PNG"];
+    function displayedImage() {
+        //If the counter has not started yet
+        if (props.image === -1) {
+            return "question-mark.PNG";
+        }
+        //if the counter has started and an outcome hasn't been determined
+        if (props.outcomeState === -1) {
+            return image_choices[props.image % 3];
+        }
+        //if the outcome has been chosen
+        return image_choices[props.outcomeState];
+    }
+
+
+    if (props.selected > 0) {
+        useEffect(() => {
+            
+            const interval = setInterval(() => {
+                props.setImage((img) => {
+                    if (img >= 5) {
+                        clearInterval(interval);
+                        props.setOutcomeState(Math.floor(Math.random() * 3));
+                    } return img + 1;
+                });
+            }, 500);
+            return () => {
+                clearInterval(interval);
+            };
+        }, []);
+
+    }
     return (
         <section id="computer-throw">
-            <img className="not-selected" src="images/question-mark.PNG" />
+            <img className={(props.outcomeState < 0) ? "not-selected" : "computer-selected"} src={"images/" + displayedImage()} />
         </section>
     );
 }
