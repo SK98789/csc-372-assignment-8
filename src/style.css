@@ -1,0 +1,53 @@
+
+/*
+  Name: Sadie Korzekwa
+  Date: 10.03.2025
+  CSC 372-01
+
+  This is the style sheet for the rock-paper-scissors page. It holds 
+  the styles for index.html.
+*/
+
+.player-selected{
+    border: 2px solid red;
+    border-radius: 8px;
+}
+
+.computer-selected{
+    border: 2px solid blue;
+    border-radius: 8px;
+}
+
+.not-selected{
+    border: 2px solid rgba(0,0,0, 0);
+    border-radius: 8px;
+}
+
+.stats-disp p{
+    display: inline;
+}
+
+#player-throw{
+   display: flex;
+   justify-content: space-around;
+   padding: 20px;
+}
+
+#computer-throw{
+   display: flex;
+   justify-content: space-around;
+   padding: 20px;
+}
+#outcome{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#results-text p{
+    display:inline;
+}
+
+#root {
+      width: 100%;
+}
