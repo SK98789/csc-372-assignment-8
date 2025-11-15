@@ -5,15 +5,17 @@ function Outcome(props) {
      * @param {int} computer - the computer's choice
      * @returns 
      */
-    function calculateWinner(player, computer){
-        if(props.outcomeState < 0){
+    function calculateWinner(player, computer) {
+        if (props.outcomeState < 0) {
             return "";
         }
-        if(player === computer){
+        if (player === computer) {
             return "Tie!";
+
         }
-        if(player > computer && !(player===2 && computer === 0) || (player===0 && computer===2))
+        if (player > computer && !(player === 2 && computer === 0) || (player === 0 && computer === 2)) {
             return "You Win!";
+        }
         return "You Lose!";
 
 
@@ -25,13 +27,6 @@ function Outcome(props) {
                 <p id="res-display">{calculateWinner(props.playerChoice, props.outcomeState)}</p>
 
             </div>
-            <button id="play-button" onClick={() => { 
-                props.setSelectedFn(false);
-                props.setPlayerChoice(-1);
-                props.setImageState(-1);
-                props.setOutcomeState(-1);
-             }} >Play Again</button>
-
         </section>
     );
 }

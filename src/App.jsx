@@ -5,13 +5,16 @@ import './style.css';
 import './App.css'
 import PlayerThrow from './PlayerThrowComponent'
 import ComputerThrow from './ComputerThrowComponent'
-import Outcome from './assets/OutcomeComponent'
+import Outcome from './OutcomeComponent'
+import PlayAgain from './PlayAgainButton';
 
 function App() {
   const [selectedState, setSelectedFn] = useState(false);
   const [playerChoice, setPlayerChoice] = useState(-1);
   const [imageState, setImageState] = useState(-1);
   const [outcomeState, setOutcomeState] = useState(-1);
+  
+
   return (
     <>
       <PlayerThrow selected={selectedState}
@@ -25,7 +28,9 @@ function App() {
         setOutcomeState={setOutcomeState} />
       <Outcome outcomeState={outcomeState}
         playerChoice={playerChoice}
-        setSelectedFn={setSelectedFn}
+        />
+
+      <PlayAgain setSelectedFn={setSelectedFn}
         setImageState={setImageState}
         setOutcomeState={setOutcomeState}
         setPlayerChoice={setPlayerChoice} />
